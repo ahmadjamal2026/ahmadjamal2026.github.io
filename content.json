@@ -12,10 +12,10 @@
     "src": "assets/Ahmad-Jamal-Portfolio.pdf"
   },
   "stats": [
-    null,
-    null,
-    null,
-    null
+    "4",
+    "+50",
+    "+100",
+    "+300"
   ],
   "projects": [
     {
@@ -398,19 +398,39 @@
     },
     {
       "name": "TKS Store",
-      "src": ""
+      "src": "assets/u-20261124-mwtuyu7l-9.png"
     },
     {
       "name": "Al Siddiq Co-op",
-      "src": ""
+      "src": "assets/u-20261124-mwtutmos-1.png"
     },
     {
-      "name": "",
-      "src": ""
+      "name": "بوفيهات الغزالة",
+      "src": "assets/u-20261124-mwtuu89g-2.png"
     },
     {
-      "name": "",
-      "src": ""
+      "name": "بوفيهات امي فاطمة",
+      "src": "assets/u-20261124-mwtuurll-3.png"
+    },
+    {
+      "name": "بوفيهات دار سعدة",
+      "src": "assets/u-20261124-mwtuvptq-4.png"
+    },
+    {
+      "name": "بوفيهات دار شيخة",
+      "src": "assets/u-20261124-mwtuwegp-5.png"
+    },
+    {
+      "name": "App Mart",
+      "src": "assets/u-20261124-mwtuwzjk-6.png"
+    },
+    {
+      "name": "Pizza lap",
+      "src": "assets/u-20261124-mwtux8ie-7.png"
+    },
+    {
+      "name": "Refresh juice",
+      "src": "assets/u-20261124-mwtuxov9-8.png"
     }
   ],
   "evid": [
