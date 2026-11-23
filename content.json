@@ -1,0 +1,597 @@
+{
+  "v": 1,
+  "contact": {
+    "wa": "201010303485",
+    "phone": "+201010303485",
+    "phoneLabel": "+20 101 030 3485",
+    "ig": "Ahmadjamal_10",
+    "be": "ahmadjamal_10"
+  },
+  "pdf": {
+    "on": true,
+    "src": "assets/Ahmad-Jamal-Portfolio.pdf"
+  },
+  "stats": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "projects": [
+    {
+      "id": "atheer",
+      "cat": "identity",
+      "type": "image",
+      "bg": "#241915",
+      "fg": "#F0DBCD",
+      "fg2": "rgba(240, 219, 205, 0.78)",
+      "title": {
+        "ar": "أثير",
+        "en": "Atheer"
+      },
+      "sub": {
+        "ar": "هوية بصرية لمتجر عطور",
+        "en": "Perfume store brand identity"
+      },
+      "imgs": [
+        "assets/c8709044d5736e593f257865115f1446.jpg",
+        "assets/d24a22531d966d9ebf3f88c033d3c624.jpg",
+        "assets/9d5395fe836f6d619bd474ee45d7a069.jpg",
+        "assets/f2dc6b95128d53ac67a40004c9eaa352.jpg",
+        "assets/828a4b84acd6a5ea36db0b090b4e81e8.jpg",
+        "assets/9ace3c660bdffd0e7079a97496de3cc4.jpg",
+        "assets/8f6f73498563b5948b8bf3d748692f58.jpg",
+        "assets/691ba0fb865baed85a580885811e0c1d.jpg",
+        "assets/13fd69cf0acfed58124784dd66e32169.jpg",
+        "assets/baa83ec1ec3eb2e3e011dae2d5d22c9b.jpg",
+        "assets/7b2951b6afe0a95ad8c6205b9397663b.jpg",
+        "assets/056054e04cf61a59decaa98d7a8014ce.jpg"
+      ],
+      "cover": "assets/c3a89edb3b3e222640ae3dc2420b7082.jpg",
+      "unit": {
+        "ar": "لوحة",
+        "en": "boards"
+      }
+    },
+    {
+      "id": "weslak",
+      "cat": "identity",
+      "type": "image",
+      "bg": "#F2661C",
+      "fg": "#111111",
+      "fg2": "#111111",
+      "title": {
+        "ar": "وصلك",
+        "en": "Weslak"
+      },
+      "sub": {
+        "ar": "هوية بصرية متكاملة",
+        "en": "Complete brand identity"
+      },
+      "imgs": [
+        "assets/6cc86410f10ff257a80b8e1f8745d64d.jpg"
+      ],
+      "cover": "assets/6cc86410f10ff257a80b8e1f8745d64d.jpg"
+    },
+    {
+      "id": "neutrogena",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#3A1A0E",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.8)",
+      "title": {
+        "ar": "Neutrogena",
+        "en": "Neutrogena"
+      },
+      "sub": {
+        "ar": "حملة سوشيال ميديا · Unofficial Campaign",
+        "en": "Social campaign · Unofficial Campaign"
+      },
+      "imgs": [
+        "assets/171b1f41345df71c30e6c6bc63f02ad2.jpg",
+        "assets/d34788de962abea510340242016a0af3.jpg",
+        "assets/877200d1a8bd02955fa5350cee16ad7d.jpg",
+        "assets/46a64f65e7bf33a4cf60a193dc9739c2.jpg"
+      ],
+      "thumbs": [
+        "assets/171b1f41345df71c30e6c6bc63f02ad2.jpg",
+        "assets/d34788de962abea510340242016a0af3.jpg",
+        "assets/877200d1a8bd02955fa5350cee16ad7d.jpg"
+      ]
+    },
+    {
+      "id": "nbk",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#06205C",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.8)",
+      "title": {
+        "ar": "NBK",
+        "en": "NBK"
+      },
+      "sub": {
+        "ar": "حملة «العالم أقرب إليك» · Unofficial Campaign",
+        "en": "Travel campaign · Unofficial Campaign"
+      },
+      "imgs": [
+        "assets/f3442204dbbe50c1b3593e1b535358b5.jpg",
+        "assets/cdc47ead7d5de683e2f3a7c0d93d4131.jpg",
+        "assets/c108ecd5a0c55725e4338c76fc3d8280.jpg",
+        "assets/903893ba2473a266b57871056a8d3aeb.jpg"
+      ],
+      "thumbs": [
+        "assets/f3442204dbbe50c1b3593e1b535358b5.jpg",
+        "assets/cdc47ead7d5de683e2f3a7c0d93d4131.jpg",
+        "assets/c108ecd5a0c55725e4338c76fc3d8280.jpg"
+      ]
+    },
+    {
+      "id": "ksa96",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#0E2F28",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.8)",
+      "title": {
+        "ar": "اليوم الوطني السعودي 96",
+        "en": "Saudi National Day 96"
+      },
+      "sub": {
+        "ar": "سلسلة «عزّنا بطبعنا» · Unofficial Campaign",
+        "en": "Heritage series · Unofficial Campaign"
+      },
+      "imgs": [
+        "assets/b91e0088fa7ce1d76626a1eab702dba9.jpg",
+        "assets/c036d340263d9650277628a6db82dea8.jpg",
+        "assets/c3e2ed90033ff83f19e8f1054d52cafa.jpg",
+        "assets/336110ba0dcf567a75db55a1f2121c58.jpg",
+        "assets/85ce06bfc95f4dfd0db924e08339f63d.jpg",
+        "assets/7bed26134bebba9690643ed4701ed9fd.jpg"
+      ],
+      "thumbs": [
+        "assets/b91e0088fa7ce1d76626a1eab702dba9.jpg",
+        "assets/c036d340263d9650277628a6db82dea8.jpg",
+        "assets/c3e2ed90033ff83f19e8f1054d52cafa.jpg",
+        "assets/336110ba0dcf567a75db55a1f2121c58.jpg"
+      ]
+    },
+    {
+      "id": "jameia",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#2B2869",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Jameia.com",
+        "en": "Jameia.com"
+      },
+      "sub": {
+        "ar": "سوشيال ميديا",
+        "en": "Social media"
+      },
+      "imgs": [
+        "assets/714123186930ce44f19cc6d1ac3f5c72.jpg",
+        "assets/a8164ce026bf888adcfc83d8946469f4.jpg",
+        "assets/81cd536d8f65e5448d242f219c128926.jpg",
+        "assets/3e758f4a2bd8fdb4695ee454707373a6.jpg",
+        "assets/5b969ce60bac759c297cfaef45274b52.jpg",
+        "assets/336bf2c76c1a3787b4ad21dc69dc8de2.jpg",
+        "assets/5979a44f6ee5daa4edd0c596113b3420.jpg",
+        "assets/2de447e65cc22e6dd45288f3274866d1.jpg",
+        "assets/f5c510dec40d20bdd570533a4a0eb4cc.jpg",
+        "assets/79db895848cb7de24ecef151044d92d9.jpg",
+        "assets/b293f19d2b163bc9b7b922e619091e96.jpg",
+        "assets/13f91e8160f5b90845715b14ce4478c1.jpg"
+      ],
+      "stack": false
+    },
+    {
+      "id": "tks",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#0A1238",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "TKS Store",
+        "en": "TKS Store"
+      },
+      "sub": {
+        "ar": "تصاميم متجر ألعاب",
+        "en": "Gaming store designs"
+      },
+      "imgs": [
+        "assets/72d512d19d1cc89199159f13594cb7ab.jpg",
+        "assets/2046dd889c17daf5d623d8567b326c3d.jpg",
+        "assets/f0634a21daaac9bc5f2e61b127dedd27.jpg",
+        "assets/89baff9fac7959bea804700d346ff23c.jpg"
+      ]
+    },
+    {
+      "id": "jameia-banners",
+      "cat": "banners",
+      "type": "image",
+      "bg": "#14123A",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Jameia.com",
+        "en": "Jameia.com"
+      },
+      "sub": {
+        "ar": "بانرات التطبيق",
+        "en": "App banners"
+      },
+      "imgs": [
+        "assets/c6de3f3a731643276700fc987262d9bf.jpg",
+        "assets/4a91356f67eaaf2d55dbab46162a134b.jpg",
+        "assets/14c01bc6adaab7b30d0f75bb245ec1f9.jpg",
+        "assets/1c0179c57a9030a949f8dfd137afc904.jpg",
+        "assets/9c326ba1ad423a23284f5e7d54bcdec9.jpg",
+        "assets/7b401fe16c7f295b6f259fdf41a5e33c.jpg",
+        "assets/d5f265e11ee3d5928bd3943e51f84ce6.jpg",
+        "assets/c2eca8fa98bb249e2ff2821d6ef63d00.jpg",
+        "assets/3aafdb184fed2a54d7eecddc1ef73b21.jpg",
+        "assets/bef80e68152c7ad7f0c0e65da2d47b8b.jpg"
+      ],
+      "stack": false,
+      "cover": "assets/c6de3f3a731643276700fc987262d9bf.jpg"
+    },
+    {
+      "id": "jameia-stories",
+      "cat": "social",
+      "type": "image",
+      "bg": "#14123A",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Jameia.com",
+        "en": "Jameia.com"
+      },
+      "sub": {
+        "ar": "ستوري",
+        "en": "Stories"
+      },
+      "imgs": [
+        "assets/cabd3db7bbb23864b19201870dc3e672.jpg",
+        "assets/a9c5624ad52dc7a7ac0ffc4b339467f8.jpg",
+        "assets/0a690e6bf62f34cfcf04a0f5de7d0744.jpg",
+        "assets/a22efaf29731f81ad600b578c7d27ce0.jpg",
+        "assets/7f609ba238c75a853f31564064d0b623.jpg",
+        "assets/4bba7282c62103b7d7550eea369c8e19.jpg"
+      ],
+      "stack": false
+    },
+    {
+      "id": "jameia-pop",
+      "cat": "banners",
+      "type": "image",
+      "bg": "#14123A",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Jameia.com",
+        "en": "Jameia.com"
+      },
+      "sub": {
+        "ar": "POP-up للتطبيق",
+        "en": "App pop-ups"
+      },
+      "imgs": [
+        "assets/499cc28b6a42fc49d028114d4bebabcb.jpg",
+        "assets/88315a9b1e6114dcac579b7ccbd4f1ab.jpg",
+        "assets/d46f5e2f1cd9aa5f7c71ceaf9ff1177c.jpg",
+        "assets/df082e897897abd929fcfdb746c24c34.jpg",
+        "assets/a50f8501dcf71d0bcc1558cc664fd0bd.jpg",
+        "assets/bc79dad3a37946982d16564202063376.jpg"
+      ],
+      "stack": false
+    },
+    {
+      "id": "concept",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#FF1F1A",
+      "fg": "#111111",
+      "fg2": "#111111",
+      "title": {
+        "ar": "تصاميم سوشيال ميديا",
+        "en": "Social Media Designs"
+      },
+      "sub": {
+        "ar": "إعلانات لمنتجات",
+        "en": "Product ads"
+      },
+      "imgs": [
+        "assets/902835ba91329ef955d292a9d46b79e2.jpg",
+        "assets/d2144a4cdf19cc4edd533b59a8b8576c.jpg",
+        "assets/792cdde236c686990eb8408eed358827.jpg",
+        "assets/a4e2c4ad63bd0737e2f35287d2354a43.jpg",
+        "assets/6c6c34113b035f94455e7b28c3fb5802.jpg",
+        "assets/39cf1e68ba37e2c9a9fdd557c177d6f8.jpg",
+        "assets/9d402a67d53ec27f7fac0e5d5858a0eb.jpg"
+      ]
+    },
+    {
+      "id": "coffee-noir",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#2B1F18",
+      "fg": "#F3E6D8",
+      "fg2": "rgba(243, 230, 216, 0.8)",
+      "title": {
+        "ar": "Coffee Noir",
+        "en": "Coffee Noir"
+      },
+      "sub": {
+        "ar": "إعلانات قهوة",
+        "en": "Coffee ads"
+      },
+      "imgs": [
+        "assets/ecf6f48c7325b964eaa6b7aefce8b72b.jpg",
+        "assets/330927fa90ddcdb9b8ca29a63bac7900.jpg",
+        "assets/87efc5ad68005ea9b091b3857c3cdfcf.jpg"
+      ]
+    },
+    {
+      "id": "sg",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#0B1733",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Scientific Gate",
+        "en": "Scientific Gate"
+      },
+      "sub": {
+        "ar": "منشورات لمنتجات طب الأسنان",
+        "en": "Dental product posts"
+      },
+      "imgs": [
+        "assets/3ca506808a5050d97f88db53890d9eb5.jpg",
+        "assets/445713c0319ae57a404c4fae0158414e.jpg",
+        "assets/a69cabe449d8098bc45315cb6bad79d0.jpg",
+        "assets/9e60cfd68a2a59f5d6406ac9f2dd6cca.jpg"
+      ]
+    },
+    {
+      "id": "lumina",
+      "cat": "social",
+      "type": "posters",
+      "bg": "#0F2140",
+      "fg": "#FFFFFF",
+      "fg2": "rgba(255, 255, 255, 0.78)",
+      "title": {
+        "ar": "Lumina Media",
+        "en": "Lumina Media"
+      },
+      "sub": {
+        "ar": "منشورات لوكالة تسويق",
+        "en": "Marketing agency posts"
+      },
+      "imgs": [
+        "assets/4112ad8e33d10961e989d56ca1ddde96.jpg",
+        "assets/dba376a2a02c482578b3d88d222c8d59.jpg",
+        "assets/9a031da1e22486d2a0a09de82ffa60ad.jpg",
+        "assets/937995d7da583057f99445e9cd793250.jpg",
+        "assets/c8661285324ad8c91746149b1672c246.jpg",
+        "assets/ab9c67d700d7127aba4e61e05fa81543.jpg"
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "name": "Jameia.com",
+      "src": "assets/6eb1cab157619ff8cdc7368583c52d8f.png"
+    },
+    {
+      "name": "Scientific Gate",
+      "src": ""
+    },
+    {
+      "name": "Lumina Media",
+      "src": "assets/b4e2a0ac38ed0f0116dba1d7375fe5a1.png"
+    },
+    {
+      "name": "TKS Store",
+      "src": ""
+    },
+    {
+      "name": "Al Siddiq Co-op",
+      "src": ""
+    },
+    {
+      "name": "",
+      "src": ""
+    },
+    {
+      "name": "",
+      "src": ""
+    }
+  ],
+  "evid": [
+    {
+      "slot": "atheer",
+      "proj": "atheer",
+      "src": "assets/c3a89edb3b3e222640ae3dc2420b7082.jpg",
+      "cap": {
+        "ar": "أثير",
+        "en": "Atheer"
+      }
+    },
+    {
+      "slot": "nbk",
+      "proj": "nbk",
+      "src": "assets/f3442204dbbe50c1b3593e1b535358b5.jpg",
+      "cap": {
+        "ar": "NBK",
+        "en": "NBK"
+      }
+    },
+    {
+      "slot": "weslak",
+      "proj": "weslak",
+      "src": "assets/6cc86410f10ff257a80b8e1f8745d64d.jpg",
+      "cap": {
+        "ar": "وصلك",
+        "en": "Weslak"
+      }
+    },
+    {
+      "slot": "neutrogena",
+      "proj": "neutrogena",
+      "src": "assets/171b1f41345df71c30e6c6bc63f02ad2.jpg",
+      "cap": {
+        "ar": "Neutrogena",
+        "en": "Neutrogena"
+      }
+    },
+    {
+      "slot": "ksa",
+      "proj": "ksa96",
+      "src": "assets/b91e0088fa7ce1d76626a1eab702dba9.jpg",
+      "cap": {
+        "ar": "اليوم الوطني 96",
+        "en": "National Day 96"
+      }
+    }
+  ],
+  "ring": [
+    {
+      "proj": "jameia",
+      "src": "assets/a8164ce026bf888adcfc83d8946469f4.jpg"
+    },
+    {
+      "proj": "tks",
+      "src": "assets/89baff9fac7959bea804700d346ff23c.jpg"
+    },
+    {
+      "proj": "lumina",
+      "src": "assets/4112ad8e33d10961e989d56ca1ddde96.jpg"
+    },
+    {
+      "proj": "concept",
+      "src": "assets/d2144a4cdf19cc4edd533b59a8b8576c.jpg"
+    },
+    {
+      "proj": "sg",
+      "src": "assets/a69cabe449d8098bc45315cb6bad79d0.jpg"
+    },
+    {
+      "proj": "jameia",
+      "src": "assets/81cd536d8f65e5448d242f219c128926.jpg"
+    },
+    {
+      "proj": "tks",
+      "src": "assets/72d512d19d1cc89199159f13594cb7ab.jpg"
+    },
+    {
+      "proj": "concept",
+      "src": "assets/792cdde236c686990eb8408eed358827.jpg"
+    },
+    {
+      "proj": "lumina",
+      "src": "assets/937995d7da583057f99445e9cd793250.jpg"
+    },
+    {
+      "proj": "jameia",
+      "src": "assets/3e758f4a2bd8fdb4695ee454707373a6.jpg"
+    },
+    {
+      "proj": "tks",
+      "src": "assets/2046dd889c17daf5d623d8567b326c3d.jpg"
+    },
+    {
+      "proj": "concept",
+      "src": "assets/902835ba91329ef955d292a9d46b79e2.jpg"
+    }
+  ],
+  "text": {
+    "ar": {
+      "name": "أحمد جمال",
+      "sub": "هويات بصرية، سوشيال ميديا، وإعلانات للشركات والعيادات والمطاعم والبراندات. تصاميم تخلّي الناس توقف، تشوف… وتشتري.",
+      "charge": "التهمة: تصاميم توقّف السكرول",
+      "newsHead": "عاجل: تصاميم توقّف السكرول… والمتّهم من القاهرة",
+      "sticky": "كل الأدلة تشير إلى أحمد!",
+      "aboutShort": "متخصص في الهوية البصرية والتصميم الرقمي، وأصمّم لـ Jameia.com منذ أبريل 2024. هدفي أن يخدم كل تصميم هدفاً تسويقياً حقيقياً، لا أن يكون جميلاً فقط.",
+      "leadA": "مصمم جرافيك يهتم",
+      "leadB": "بالتفاصيل الصغيرة اللي تصنع الفرق.",
+      "bio": "متخصص في الهوية البصرية والتصميم الرقمي. أشتغل على Photoshop وIllustrator، وأستخدم أدوات الذكاء الاصطناعي لأوصل لأفكار أسرع وجودة أعلى. هدفي أن يخدم كل تصميم هدفاً تسويقياً حقيقياً، لا أن يكون جميلاً فقط.",
+      "workSub": "مشاريع حقيقية لعملاء حقيقيين. اختر النوع، وافتح أي مشروع وقلّب صوره.",
+      "jmIntro": "أصمّم لـ Jameia.com منذ أبريل 2024 عن بُعد: بوستات وستوري السوشيال ميديا، وبانرات و POP-up التطبيق.",
+      "ctSub": "ابعت لي فكرتك على واتساب، وخلّينا نبدأ."
+    },
+    "en": {
+      "name": "Ahmad Jamal",
+      "sub": "Brand identities, social media and ads for companies, clinics, restaurants and brands. Designs that make people stop, look… and buy.",
+      "charge": "Charge: designs that stop the scroll",
+      "newsHead": "Breaking: designs that stop the scroll — suspect is from Cairo",
+      "sticky": "All evidence points to Ahmad!",
+      "aboutShort": "I specialise in brand identity and digital design, and have designed for Jameia.com since April 2024. Every design should serve a real marketing goal, not just look good.",
+      "leadA": "A graphic designer obsessed with",
+      "leadB": "the small details that make the difference.",
+      "bio": "I specialise in brand identity and digital design. I work in Photoshop and Illustrator, and use AI tools to reach ideas faster and push quality higher. My goal: every design should serve a real marketing goal — not just look good.",
+      "workSub": "Real projects for real clients. Pick a type, then open any project to browse it.",
+      "jmIntro": "Designing for Jameia.com remotely since April 2024: social media content, plus banners and pop-ups for the app.",
+      "ctSub": "Send me your idea on WhatsApp and let’s get started."
+    }
+  },
+  "exp": [
+    {
+      "now": true,
+      "ar": {
+        "y": "أبريل 2024 — الآن",
+        "org": "Jameia.com",
+        "m": "تصميم جرافيك · عن بُعد"
+      },
+      "en": {
+        "y": "Apr 2024 — Now",
+        "org": "Jameia.com",
+        "m": "Graphic design · Remote"
+      }
+    },
+    {
+      "now": false,
+      "ar": {
+        "y": "يناير — أبريل 2024",
+        "org": "Scientific Gate",
+        "m": "تدريب تصميم جرافيك · حضوري"
+      },
+      "en": {
+        "y": "Jan — Apr 2024",
+        "org": "Scientific Gate",
+        "m": "Graphic design intern · On-site"
+      }
+    },
+    {
+      "now": false,
+      "ar": {
+        "y": "2023 — 2024",
+        "org": "Scientific Gate",
+        "m": "تدريب تصميم جرافيك · حضوري"
+      },
+      "en": {
+        "y": "2023 — 2024",
+        "org": "Scientific Gate",
+        "m": "Graphic design intern · On-site"
+      }
+    },
+    {
+      "now": false,
+      "ar": {
+        "y": "2022 — 2023",
+        "org": "Al Siddiq Co-op",
+        "m": "تصميم جرافيك · عن بُعد"
+      },
+      "en": {
+        "y": "2022 — 2023",
+        "org": "Al Siddiq Co-op",
+        "m": "Graphic design · Remote"
+      }
+    }
+  ]
+}

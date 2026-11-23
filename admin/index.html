@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E0E0E">
+<title>لوحة التحكم — أحمد جمال</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23E3140F'/%3E%3Cpath d='M32 12 52 32 32 52 12 32Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0E0E0E;--panel:#151515;--card:#1C1C1C;--card2:#232323;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);--ink:#F3F0EC;--mute:#A9A39C;--red:#E3140F;--red2:#FF4A3D;--ok:#7FD48A;--warn:#FFB35C;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 'IBM Plex Sans Arabic',system-ui,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--red2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;cursor:pointer;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn:hover{border-color:var(--ink)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{background:#c7100c}
+.btn.red:disabled{background:#3a1c1b;border-color:#3a1c1b;color:#9b7d7a;cursor:not-allowed}
+.btn.sm{min-height:34px;padding:0 12px;font-size:13px}
+.btn.icon{width:34px;min-height:34px;padding:0;border-radius:10px}
+.btn.danger{color:#ff8a80;border-color:rgba(255,74,61,.4)}
+.btn.dashed{border-style:dashed;color:var(--red2);border-color:rgba(255,74,61,.6)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,label.btn:focus-within{outline:2px solid var(--red2);outline-offset:2px}
+input[type=text],input[type=password],input[type=url],select,textarea{width:100%;min-height:42px;padding:9px 12px;border-radius:10px;border:1px solid var(--line2);background:#101010}
+textarea{min-height:84px;resize:vertical;line-height:1.7}
+input[dir=ltr],textarea[dir=ltr]{text-align:left}
+label.f{display:block}
+label.f>span{display:block;margin-bottom:6px;font-size:13px;font-weight:700;color:var(--mute)}
+.hint{margin:6px 0 0;font-size:12.5px;color:var(--mute)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.muted{color:var(--mute)}
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px}
+.login .card{width:min(100%,460px);padding:28px}
+.login h1{margin:0 0 4px;font-size:24px}
+.login form{display:grid;gap:14px;margin-top:18px}
+.err{margin:0;padding:10px 12px;border-radius:10px;background:rgba(255,74,61,.12);color:#ffb3ab;font-size:14px}
+/* shell */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px clamp(12px,3vw,24px);background:rgba(14,14,14,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;margin-inline-end:auto}
+.brand i{width:12px;height:12px;background:var(--red);transform:rotate(45deg);display:inline-block}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--mute)}
+.status b{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.status.dirty b{background:var(--warn)}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;padding:20px clamp(12px,3vw,24px) 60px;max-width:1320px;margin:0 auto}
+.layout>*,.split>*,.grid2>*{min-width:0}
+nav.tabs{position:sticky;top:78px;align-self:start;display:grid;gap:4px}
+nav.tabs button{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 14px;border-radius:10px;border:0;background:transparent;text-align:start;cursor:pointer;font-weight:700;color:var(--mute)}
+nav.tabs button:hover{background:var(--card);color:var(--ink)}
+nav.tabs button[aria-current=page]{background:var(--red);color:#fff}
+h2.ph{margin:0 0 4px;font-size:22px}
+p.pd{margin:0 0 18px;color:var(--mute)}
+/* projects */
+.split{display:grid;grid-template-columns:280px minmax(0,1fr);gap:16px;align-items:start}
+.plist{display:grid;gap:6px;max-height:calc(100vh - 140px);overflow:auto;padding-inline-end:4px}
+.pitem{display:flex;align-items:center;gap:10px;width:100%;padding:7px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;text-align:start}
+.pitem.on{border-color:var(--red2);background:#241514}
+.pitem img,.pitem .ph0{width:52px;height:52px;border-radius:8px;object-fit:cover;flex:0 0 auto;background:#2a2a2a}
+.pitem b{display:block;font-size:14px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pitem small{display:block;font-size:12px;color:var(--mute)}
+.pitem .lock{margin-inline-start:auto;font-size:11px;color:var(--mute);border:1px solid var(--line2);border-radius:6px;padding:0 6px}
+.ed{display:grid;gap:16px}
+.edhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.edhead h3{margin:0;margin-inline-end:auto;font-size:19px}
+.note{padding:10px 12px;border-radius:10px;background:rgba(255,179,92,.08);border:1px solid rgba(255,179,92,.25);color:#ffd7a8;font-size:13.5px}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{position:relative;border-radius:12px;overflow:hidden;background:#101010;border:1px solid var(--line)}
+.tile img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#2a2a2a}
+.tile.cover{border-color:var(--red2);box-shadow:0 0 0 2px var(--red2)}
+.tile .tools{display:flex;gap:4px;justify-content:space-between;align-items:center;padding:6px;background:#141414}
+.tile .tools .btn.icon{width:30px;min-height:30px;border-radius:8px}
+.tile .tools .btn.sm{min-height:30px;padding:0 9px;font-size:12px}
+.tile .tag{position:absolute;top:6px;inset-inline-start:6px;padding:1px 8px;border-radius:999px;background:var(--red);color:#fff;font-size:11px;font-weight:700}
+.tile .num{position:absolute;top:6px;inset-inline-end:6px;padding:0 7px;border-radius:999px;background:rgba(0,0,0,.7);font-size:11px}
+.tile .new{position:absolute;bottom:46px;inset-inline-start:6px;padding:0 7px;border-radius:999px;background:var(--warn);color:#111;font-size:11px;font-weight:700}
+.upl{display:grid;place-items:center;gap:6px;min-height:150px;border:1.5px dashed rgba(255,74,61,.55);border-radius:12px;color:var(--red2);cursor:pointer;text-align:center;font-weight:700;padding:10px}
+.upl:hover{background:rgba(255,74,61,.06)}
+.upl input,.btn input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.colors{display:flex;gap:14px;flex-wrap:wrap}
+.colors label{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);font-weight:700}
+input[type=color]{width:44px;height:34px;border:1px solid var(--line2);border-radius:8px;background:none;padding:2px;cursor:pointer}
+/* slots */
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.slot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px}
+.slot .pv{position:relative;border-radius:10px;overflow:hidden;background:#101010}
+.slot .pv img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.slot .pv.wide img{aspect-ratio:16/9}
+.slot b{font-size:14px}
+.slot small{color:var(--mute);font-size:12px}
+.ringg{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.ringg button{position:relative;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#101010;cursor:pointer}
+.ringg button img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.ringg button span{position:absolute;top:6px;inset-inline-start:6px;padding:0 7px;border-radius:999px;background:rgba(0,0,0,.75);font-size:12px;font-weight:700}
+.ringg button em{position:absolute;bottom:0;inset-inline:0;padding:4px;background:rgba(0,0,0,.7);font-style:normal;font-size:12px;opacity:0;transition:opacity .2s}
+.ringg button:hover em,.ringg button:focus-visible em{opacity:1}
+/* list rows */
+.rows{display:grid;gap:10px}
+.lrow{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px}
+.lrow .logo{width:96px;height:60px;border-radius:10px;background:#F3F0EC;display:grid;place-items:center;overflow:hidden;color:#555;font-size:12px}
+.lrow .logo img{max-width:86%;max-height:80%;object-fit:contain}
+.xrow{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stats .card input{font-size:26px;font-weight:700;min-height:54px;text-align:center}
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.75);display:grid;place-items:center;padding:16px}
+.modal .box{width:min(100%,980px);max-height:88vh;overflow:auto;background:var(--panel);border:1px solid var(--line2);border-radius:18px;padding:18px}
+.modal .mh{position:sticky;top:-18px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-18px -18px 12px;padding:14px 18px;background:var(--panel);border-bottom:1px solid var(--line)}
+.modal h4{margin:14px 0 8px;font-size:15px}
+.pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.pick button{padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#101010;cursor:pointer}
+.pick button.on{border-color:var(--red2)}
+.pick img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+/* toast + busy */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:60;max-width:min(92vw,560px);padding:12px 18px;border-radius:14px;background:#1f2a20;border:1px solid rgba(127,212,138,.4);color:#d6f5da;font-weight:700;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.toast.bad{background:#2d1715;border-color:rgba(255,74,61,.5);color:#ffcdc7}
+.busy{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.6);display:grid;place-items:center}
+.busy div{padding:22px 26px;border-radius:16px;background:var(--panel);border:1px solid var(--line2);font-weight:700;text-align:center}
+.spin{width:28px;height:28px;margin:0 auto 10px;border-radius:50%;border:3px solid var(--line2);border-top-color:var(--red);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (max-width:900px){
+.layout{grid-template-columns:1fr}
+nav.tabs{position:static;display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}
+nav.tabs button{flex:0 0 auto}
+.split{grid-template-columns:1fr}
+.plist{max-height:none;grid-auto-flow:column;grid-auto-columns:240px;overflow-x:auto}
+.lrow{grid-template-columns:72px minmax(0,1fr)}
+.lrow .logo{width:72px}
+.lrow .acts{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="layer"></div>
+<script>
+(() => {
+'use strict';
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const LS = 'aj_admin_v1';
+const lsGet = (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+const lsSet = (k, v) => { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* private mode */ } };
+const API = lsGet('aj_api') || 'https://api.github.com';
+const SITE = new URL('../', location.href).href;
+
+const CATS = [['identity', 'هويات بصرية'], ['social', 'سوشيال ميديا'], ['banners', 'بانرات و POP-up'], ['concept', 'كونسبت إعلاني']];
+const LOCK = { 'jameia': 'قسم Jameia.com — بوستات السوشيال', 'jameia-banners': 'قسم Jameia.com — بانرات التطبيق', 'jameia-stories': 'قسم Jameia.com — ستوري', 'jameia-pop': 'قسم Jameia.com — POP-up' };
+const SLOTS = [
+  { key: 'atheer', label: '#01 — فوق، جنب صورتك', wide: true, note: 'صورة عريضة (بتنقص من الأطراف)' },
+  { key: 'nbk', label: '#02 — جنب صورتك من تحت', wide: false },
+  { key: 'weslak', label: '#03 — الزاوية السفلية', wide: true, note: 'عريضة — ما بتظهر على الموبايل' },
+  { key: 'neutrogena', label: '#04 — الجهة الثانية من صورتك', wide: false },
+  { key: 'ksa', label: '#05 — تحت، جنب التقرير', wide: false },
+];
+const TEXTS = [
+  { k: 'name', l: 'اسمك', h: 'بالهيدر، وعلى صورتك في اللوحة، وبالفوتر.' },
+  { k: 'charge', l: '«التهمة» تحت صورتك', h: 'الجملة الحمرا على الورقة تحت صورتك.' },
+  { k: 'newsHead', l: 'عنوان الجريدة', h: 'العنوان العاجل على قصاصة الجريدة.' },
+  { k: 'sub', l: 'الوصف التعريفي', h: 'بيظهر داخل قصاصة الجريدة.', area: true },
+  { k: 'sticky', l: 'الورقة الصفرا', h: 'جملة قصيرة.' },
+  { k: 'aboutShort', l: 'ملخص «عنّي» في القصاصة', h: 'بيظهر لما حدا يمرّر على ورقة «عنّي».', area: true },
+  { k: 'leadA', l: 'عنوان قسم «عنّي» — الجزء الأول' },
+  { k: 'leadB', l: 'عنوان قسم «عنّي» — الجزء المظلّل بالأحمر' },
+  { k: 'bio', l: 'النبذة الكاملة', area: true },
+  { k: 'workSub', l: 'وصف قسم الأعمال', area: true },
+  { k: 'jmIntro', l: 'تعريف قسم Jameia.com', area: true },
+  { k: 'ctSub', l: 'جملة قسم التواصل' },
+];
+const STATS = ['سنين الخبرة', 'العملاء', 'المشاريع', 'التصاميم'];
+const TABS = [['projects', 'المشاريع'], ['board', 'لوحة الأدلة'], ['ring', 'المعرض الدوّار'], ['stats', 'الأرقام'], ['clients', 'العملاء'], ['texts', 'النصوص'], ['exp', 'الخبرات'], ['contact', 'التواصل'], ['pdf', 'ملف PDF']];
+
+const S = { auth: null, branch: 'main', content: null, tab: 'projects', sel: 0, dirty: false, pending: new Map(), previews: new Map(), err: '', loading: false };
+
+/* ---------- helpers ---------- */
+const img = (p) => (p ? (S.previews.get(p) || new URL(p, SITE).href) : '');
+const projTitle = (p) => (p && p.title && (p.title.ar || p.title.en)) || 'بدون اسم';
+const catLabel = (k) => (CATS.find((c) => c[0] === k) || ['', ''])[1];
+const getPath = (o, path) => path.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
+function setPath(o, path, v) {
+  const ks = path.split('.');
+  let cur = o;
+  for (let i = 0; i < ks.length - 1; i++) {
+    if (cur[ks[i]] == null || typeof cur[ks[i]] !== 'object') cur[ks[i]] = /^\d+$/.test(ks[i + 1]) ? [] : {};
+    cur = cur[ks[i]];
+  }
+  cur[ks[ks.length - 1]] = v;
+}
+const move = (arr, i, d) => { const j = i + d; if (j < 0 || j >= arr.length) return false; const t = arr[i]; arr[i] = arr[j]; arr[j] = t; return true; };
+const pair = (o) => ({ ar: (o && o.ar) || '', en: (o && o.en) || '' });
+
+function normalize(c) {
+  c = c && typeof c === 'object' ? c : {};
+  c.v = 1;
+  c.projects = Array.isArray(c.projects) ? c.projects.filter((p) => p && p.id) : [];
+  c.projects.forEach((p) => { p.title = pair(p.title); p.sub = pair(p.sub); p.imgs = Array.isArray(p.imgs) ? p.imgs.filter(Boolean) : []; p.type = p.type === 'image' ? 'image' : 'posters'; if (!p.cat) p.cat = 'social'; });
+  c.logos = Array.isArray(c.logos) ? c.logos.filter(Boolean).map((l) => ({ name: l.name || '', src: l.src || '' })) : [];
+  c.stats = [0, 1, 2, 3].map((i) => (Array.isArray(c.stats) && c.stats[i] != null ? String(c.stats[i]) : null));
+  c.evid = SLOTS.map((s, i) => { const e = (Array.isArray(c.evid) && c.evid[i]) || {}; return { slot: s.key, proj: e.proj || '', src: e.src || '', cap: pair(e.cap) }; });
+  c.ring = Array.isArray(c.ring) ? c.ring.slice(0, 12).map((r) => ({ proj: (r && r.proj) || '', src: (r && r.src) || '' })) : [];
+  while (c.ring.length < 12) c.ring.push({ proj: '', src: '' });
+  c.text = c.text && typeof c.text === 'object' ? c.text : {};
+  c.text.ar = c.text.ar || {}; c.text.en = c.text.en || {};
+  c.exp = Array.isArray(c.exp) ? c.exp.filter(Boolean).map((e) => ({ now: !!e.now, ar: Object.assign({ y: '', org: '', m: '' }, e.ar), en: Object.assign({ y: '', org: '', m: '' }, e.en) })) : [];
+  c.contact = Object.assign({ wa: '', phone: '', phoneLabel: '', ig: '', be: '' }, c.contact);
+  c.pdf = Object.assign({ on: true, src: '' }, c.pdf);
+  return c;
+}
+
+/* ---------- GitHub ---------- */
+async function gh(method, path, body, raw) {
+  const headers = { Authorization: 'Bearer ' + S.auth.token, Accept: raw ? 'application/vnd.github.raw+json' : 'application/vnd.github+json' };
+  if (body) headers['Content-Type'] = 'application/json';
+  let r;
+  try {
+    r = await fetch(API + path, { method: method, headers: headers, body: body ? JSON.stringify(body) : undefined, cache: 'no-store' });
+  } catch (e) {
+    const er = new Error('net'); er.status = 0; throw er;
+  }
+  if (!r.ok) {
+    const er = new Error('gh ' + r.status); er.status = r.status;
+    try { er.detail = (await r.json()).message || ''; } catch (x) { er.detail = ''; }
+    throw er;
+  }
+  return raw ? r.text() : r.json();
+}
+const repoPath = () => '/repos/' + encodeURIComponent(S.auth.owner) + '/' + encodeURIComponent(S.auth.repo);
+function errText(e, stage) {
+  const s = e && e.status;
+  if (s === 0) return 'ما في اتصال بالإنترنت، أو GitHub مش راد. جرّب كمان شوي.';
+  if (s === 401) return 'المفتاح (Token) غلط أو انتهت صلاحيته. اعمل مفتاح جديد وادخل فيه.';
+  if (s === 403) return 'المفتاح ما عنده صلاحية كتابة على المستودع. لازم تعطيه Contents: Read and write.';
+  if (s === 404) return stage === 'content' ? 'ما لقيت ملف content.json بالمستودع. تأكد إنك رفعت كل ملفات الموقع.' : 'ما لقيت المستودع. تأكد من اسم المستخدم واسم المستودع، وإن المفتاح مربوط بهذا المستودع.';
+  if (s === 409 || s === 422) return 'صار تعارض أثناء الحفظ. اضغط «حفظ ونشر» مرة ثانية.';
+  if (e && e.message === 'json') return 'ملف content.json فيه خطأ وما قدرت أقرأه.';
+  return 'صار خطأ غير متوقع (' + (s || '?') + ').';
+}
+
+async function login(owner, repo, token) {
+  S.auth = { owner: owner.trim(), repo: repo.trim(), token: token.trim() };
+  const info = await gh('GET', repoPath());
+  S.branch = info.default_branch || 'main';
+  if (info.permissions && info.permissions.push === false) { const e = new Error('ro'); e.status = 403; throw e; }
+  let raw;
+  try { raw = await gh('GET', repoPath() + '/contents/content.json?ref=' + encodeURIComponent(S.branch), null, true); } catch (e) { e.stage = 'content'; throw e; }
+  let data;
+  try { data = JSON.parse(raw); } catch (e) { const er = new Error('json'); throw er; }
+  S.content = normalize(data);
+  S.dirty = false;
+  lsSet(LS, JSON.stringify(S.auth));
+}
+
+function blobToB64(blob) {
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => res(String(fr.result).split(',')[1] || '');
+    fr.onerror = () => rej(fr.error);
+    fr.readAsDataURL(blob);
+  });
+}
+
+async function publish() {
+  if (S.busy) return;
+  S.busy = true;
+  const files = Array.from(S.pending.entries());
+  const total = files.length + 3;
+  let step = 0;
+  const tick = (label) => { step += 1; busy(label + ' (' + step + '/' + total + ')'); };
+  try {
+    tick('بجهّز الحفظ');
+    const base = repoPath();
+    const ref = await gh('GET', base + '/git/ref/heads/' + S.branch);
+    const head = ref.object.sha;
+    const commit = await gh('GET', base + '/git/commits/' + head);
+    const items = [];
+    for (const [path, f] of files) {
+      tick('برفع الصور والملفات');
+      const b64 = await blobToB64(f.blob);
+      const bl = await gh('POST', base + '/git/blobs', { content: b64, encoding: 'base64' });
+      items.push({ path: path, mode: '100644', type: 'blob', sha: bl.sha });
+    }
+    tick('بحفظ المحتوى');
+    const json = JSON.stringify(S.content, null, 2) + '\n';
+    const cb = await gh('POST', base + '/git/blobs', { content: json, encoding: 'utf-8' });
+    items.push({ path: 'content.json', mode: '100644', type: 'blob', sha: cb.sha });
+    const tree = await gh('POST', base + '/git/trees', { base_tree: commit.tree.sha, tree: items });
+    const nc = await gh('POST', base + '/git/commits', { message: 'تحديث المحتوى من لوحة التحكم', tree: tree.sha, parents: [head] });
+    tick('بنشر التحديث');
+    await gh('PATCH', base + '/git/refs/heads/' + S.branch, { sha: nc.sha });
+    S.pending.clear();
+    S.dirty = false;
+    busy(null);
+    updateBar();
+    if (S.tab) renderPanel();
+    toast('تم الحفظ والنشر ✓ الموقع بيتحدّث خلال دقيقة أو دقيقتين.');
+  } catch (e) {
+    busy(null);
+    toast(errText(e), true);
+  } finally {
+    S.busy = false;
+  }
+}
+
+/* ---------- files ---------- */
+const EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif', 'image/svg+xml': 'svg', 'application/pdf': 'pdf' };
+async function prepImage(file) {
+  const t = file.type;
+  const keep = () => ({ blob: file, ext: EXT[t] || (file.name.split('.').pop() || 'jpg').toLowerCase() });
+  if (t === 'image/gif' || t === 'image/svg+xml' || !window.createImageBitmap) return keep();
+  let bmp;
+  try { bmp = await createImageBitmap(file); } catch (e) { return keep(); }
+  const max = 2000;
+  const s = Math.min(1, max / Math.max(bmp.width, bmp.height));
+  const w = Math.max(1, Math.round(bmp.width * s));
+  const h = Math.max(1, Math.round(bmp.height * s));
+  const cv = document.createElement('canvas');
+  cv.width = w; cv.height = h;
+  const ctx = cv.getContext('2d');
+  const png = t === 'image/png';
+  if (!png) { ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, w, h); }
+  ctx.drawImage(bmp, 0, 0, w, h);
+  const out = await new Promise((r) => cv.toBlob(r, png ? 'image/png' : 'image/jpeg', 0.86));
+  if (!out || (s === 1 && out.size >= file.size && (t === 'image/jpeg' || png))) return keep();
+  return { blob: out, ext: png ? 'png' : 'jpg' };
+}
+let upSeq = 0;
+function stamp() { const d = new Date(); upSeq += 1; return d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0') + '-' + d.getTime().toString(36) + '-' + upSeq; }
+async function addFiles(fileList, kind) {
+  const files = Array.from(fileList || []);
+  const paths = [];
+  for (const f of files) {
+    if (kind === 'pdf') {
+      if (f.type !== 'application/pdf' && !/\.pdf$/i.test(f.name)) { toast('اختار ملف PDF.', true); continue; }
+      const p = 'assets/portfolio-' + stamp() + '.pdf';
+      S.pending.set(p, { blob: f });
+      paths.push(p);
+      continue;
+    }
+    if (!/^image\//.test(f.type)) { toast('الملف «' + f.name + '» مش صورة، تخطّيته.', true); continue; }
+    const r = await prepImage(f);
+    const p = 'assets/u-' + stamp() + '.' + r.ext;
+    S.pending.set(p, { blob: r.blob });
+    S.previews.set(p, URL.createObjectURL(r.blob));
+    paths.push(p);
+  }
+  return paths;
+}
+
+/* ---------- UI shell ---------- */
+function toast(msg, bad) {
+  const el = document.createElement('div');
+  el.className = 'toast' + (bad ? ' bad' : '');
+  el.setAttribute('role', bad ? 'alert' : 'status');
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), bad ? 7000 : 4200);
+}
+function busy(label) {
+  const l = $('#layer');
+  const old = $('.busy', l);
+  if (old) old.remove();
+  if (!label) return;
+  const d = document.createElement('div');
+  d.className = 'busy';
+  d.innerHTML = '<div><div class="spin"></div>' + esc(label) + '</div>';
+  l.appendChild(d);
+}
+function markDirty() { S.dirty = true; updateBar(); }
+function updateBar() {
+  const st = $('#status');
+  if (!st) return;
+  const n = S.pending.size;
+  st.className = 'status' + (S.dirty ? ' dirty' : '');
+  st.innerHTML = '<b></b>' + (S.dirty ? 'تغييرات غير منشورة' + (n ? ' · ' + n + ' ملف جديد' : '') : 'كل شي منشور');
+  const pb = $('#publish');
+  if (pb) pb.disabled = !S.dirty;
+}
+
+function render() {
+  const app = $('#app');
+  if (!S.content) { app.innerHTML = loginView(); return; }
+  app.innerHTML = '<header class="top"><div class="brand"><i aria-hidden="true"></i>لوحة التحكم</div>'
+    + '<span id="status" class="status" role="status"></span>'
+    + '<a class="btn sm" href="' + esc(SITE) + '" target="_blank" rel="noopener">عرض الموقع ↗</a>'
+    + '<button class="btn sm" type="button" data-act="logout">خروج</button>'
+    + '<button id="publish" class="btn red" type="button" data-act="publish">حفظ ونشر</button></header>'
+    + '<div class="layout"><nav class="tabs" aria-label="أقسام لوحة التحكم">'
+    + TABS.map((t) => '<button type="button" data-act="tab" data-tab="' + t[0] + '"' + (S.tab === t[0] ? ' aria-current="page"' : '') + '>' + t[1] + '</button>').join('')
+    + '</nav><main id="panel"></main></div>';
+  renderPanel();
+}
+function renderPanel() {
+  const p = $('#panel');
+  if (!p) return;
+  p.innerHTML = (PANELS[S.tab] || PANELS.projects)();
+  document.querySelectorAll('nav.tabs button').forEach((b) => { if (b.dataset.tab === S.tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+  updateBar();
+}
+
+function loginView() {
+  let owner = '';
+  let repo = '';
+  const h = location.hostname;
+  if (/\.github\.io$/i.test(h)) {
+    owner = h.split('.')[0];
+    const seg = location.pathname.split('/').filter(Boolean);
+    repo = seg.length >= 2 && seg[seg.length - 1] === 'admin' && seg[0] !== 'admin' ? seg[0] : h;
+  }
+  const saved = (() => { try { return JSON.parse(lsGet(LS) || 'null'); } catch (e) { return null; } })();
+  if (saved) { owner = saved.owner || owner; repo = saved.repo || repo; }
+  if (S.form) { owner = S.form.owner || owner; repo = S.form.repo || repo; }
+  return '<div class="login"><div class="card"><h1>لوحة التحكم</h1><p class="muted" style="margin:0">ادخل بالمفتاح السري تبعك. بيتخزّن على هذا الجهاز بس.</p>'
+    + (S.err ? '<p class="err" role="alert" style="margin-top:14px">' + esc(S.err) + '</p>' : '')
+    + '<form id="loginf" autocomplete="on">'
+    + '<label class="f"><span>اسم المستخدم على GitHub</span><input type="text" name="owner" dir="ltr" required value="' + esc(owner) + '" autocomplete="username"></label>'
+    + '<label class="f"><span>اسم المستودع</span><input type="text" name="repo" dir="ltr" required value="' + esc(repo) + '"></label>'
+    + '<label class="f"><span>المفتاح السري (Token)</span><input type="password" name="token" dir="ltr" required autocomplete="current-password" placeholder="github_pat_…"></label>'
+    + '<button class="btn red" type="submit"' + (S.loading ? ' disabled' : '') + '>' + (S.loading ? 'جاري الدخول…' : 'دخول') + '</button></form></div></div>';
+}
+
+/* ---------- panels ---------- */
+const field = (label, path, opts) => {
+  opts = opts || {};
+  const v = getPath(S.content, path);
+  const dir = opts.ltr ? ' dir="ltr"' : '';
+  const ctl = opts.area
+    ? '<textarea data-bind="' + path + '"' + dir + '>' + esc(v) + '</textarea>'
+    : '<input type="text" data-bind="' + path + '"' + dir + ' value="' + esc(v) + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + '>';
+  return '<label class="f"><span>' + esc(label) + '</span>' + ctl + (opts.hint ? '<p class="hint">' + esc(opts.hint) + '</p>' : '') + '</label>';
+};
+
+const PANELS = {
+  projects() {
+    const P = S.content.projects;
+    if (S.sel >= P.length) S.sel = Math.max(0, P.length - 1);
+    const list = P.map((p, i) => {
+      const th = p.cover || p.imgs[0];
+      return '<button type="button" class="pitem' + (i === S.sel ? ' on' : '') + '" data-act="psel" data-i="' + i + '">'
+        + (th ? '<img src="' + esc(img(th)) + '" alt="" loading="lazy">' : '<span class="ph0"></span>')
+        + '<span style="min-width:0"><b data-ptitle="' + i + '">' + esc(projTitle(p)) + '</b><small>' + esc(LOCK[p.id] ? 'قسم Jameia.com' : catLabel(p.cat)) + ' · ' + p.imgs.length + ' صورة</small></span>'
+        + (LOCK[p.id] ? '<span class="lock">ثابت</span>' : '') + '</button>';
+    }).join('');
+    const p = P[S.sel];
+    let ed = '<p class="muted">ما في مشاريع.</p>';
+    if (p) {
+      const i = S.sel;
+      const locked = !!LOCK[p.id];
+      const base = 'projects.' + i;
+      ed = '<div class="ed"><div class="edhead"><h3>' + esc(projTitle(p)) + '</h3>'
+        + '<button class="btn sm" type="button" data-act="pmove" data-d="-1"' + (i === 0 ? ' disabled' : '') + '>تقديم ↑</button>'
+        + '<button class="btn sm" type="button" data-act="pmove" data-d="1"' + (i === P.length - 1 ? ' disabled' : '') + '>تأخير ↓</button>'
+        + (locked ? '' : '<button class="btn sm danger" type="button" data-act="pdel">حذف المشروع</button>') + '</div>'
+        + (locked ? '<p class="note">' + esc(LOCK[p.id]) + ': تقدر تغيّر صوره ونصوصه، بس ما بينحذف لأنه قسم ثابت بالموقع.</p>' : '')
+        + '<div class="grid2">' + field('العنوان (عربي)', base + '.title.ar') + field('Title (English)', base + '.title.en', { ltr: true })
+        + field('الوصف (عربي)', base + '.sub.ar') + field('Subtitle (English)', base + '.sub.en', { ltr: true }) + '</div>'
+        + (locked ? '' : '<div class="grid2"><label class="f"><span>التصنيف</span><select data-bind="' + base + '.cat">'
+          + CATS.map((c) => '<option value="' + c[0] + '"' + (p.cat === c[0] ? ' selected' : '') + '>' + c[1] + '</option>').join('') + '</select></label>'
+          + '<label class="f"><span>شكل البطاقة بقسم الأعمال</span><select data-bind="' + base + '.type" data-rerender="1">'
+          + '<option value="posters"' + (p.type !== 'image' ? ' selected' : '') + '>مروحة بوستات (أول 4 صور)</option>'
+          + '<option value="image"' + (p.type === 'image' ? ' selected' : '') + '>صورة غلاف عريضة</option></select></label></div>'
+          + '<div class="colors"><label>لون خلفية البطاقة <input type="color" data-bind="' + base + '.bg" value="' + esc(toHex(p.bg, '#1B1B1B')) + '"></label>'
+          + '<label>لون الكتابة <input type="color" data-bind="' + base + '.fg" data-fg="1" value="' + esc(toHex(p.fg, '#FFFFFF')) + '"></label></div>')
+        + '<div><div class="row" style="justify-content:space-between;margin-bottom:10px"><b>الصور (' + p.imgs.length + ')</b>'
+        + (p.type === 'image' && !locked ? '<span class="muted" style="font-size:13px">اضغط «غلاف» على الصورة اللي بدك ياها تظهر على البطاقة.</span>' : '') + '</div>'
+        + '<div class="imgs">' + p.imgs.map((s, j) => '<div class="tile' + (p.type === 'image' && (p.cover || p.imgs[0]) === s && !locked ? ' cover' : '') + '">'
+          + '<img src="' + esc(img(s)) + '" alt="" loading="lazy"><span class="num">' + (j + 1) + '</span>'
+          + (p.type === 'image' && (p.cover || p.imgs[0]) === s && !locked ? '<span class="tag">الغلاف</span>' : '')
+          + (S.pending.has(s) ? '<span class="new">جديدة</span>' : '')
+          + '<div class="tools"><span class="row" style="gap:4px"><button class="btn icon" type="button" data-act="imove" data-j="' + j + '" data-d="-1" aria-label="تقديم الصورة" title="تقديم"' + (j === 0 ? ' disabled' : '') + '>→</button>'
+          + '<button class="btn icon" type="button" data-act="imove" data-j="' + j + '" data-d="1" aria-label="تأخير الصورة" title="تأخير"' + (j === p.imgs.length - 1 ? ' disabled' : '') + '>←</button></span>'
+          + (p.type === 'image' && !locked ? '<button class="btn sm" type="button" data-act="icover" data-j="' + j + '">غلاف</button>' : '')
+          + '<button class="btn icon danger" type="button" data-act="idel" data-j="' + j + '" aria-label="حذف الصورة" title="حذف">✕</button></div></div>').join('')
+        + '<label class="upl"><input type="file" accept="image/*" multiple data-up="pimgs"><span style="font-size:28px;line-height:1">+</span>أضف صور<small class="muted" style="font-weight:500">بتقدر تختار أكتر من صورة</small></label></div></div></div>';
+    }
+    return '<h2 class="ph">المشاريع</h2><p class="pd">ترتيب المشاريع هنا هو ترتيبها بقسم الأعمال. أي مشروع بتضيفه بيظهر بالموقع بعد «حفظ ونشر».</p>'
+      + '<div class="split"><div><button class="btn dashed" type="button" data-act="padd" style="width:100%;margin-bottom:8px">+ مشروع جديد</button><div class="plist">' + list + '</div></div>' + ed + '</div>';
+  },
+  board() {
+    return '<h2 class="ph">لوحة الأدلة</h2><p class="pd">التصاميم الخمسة المثبتة على اللوحة بأعلى الموقع. اضغط «تغيير» واختار أي صورة من مشاريعك.</p><div class="slots">'
+      + S.content.evid.map((e, i) => {
+        const s = SLOTS[i];
+        return '<div class="slot"><b>' + esc(s.label) + '</b>' + (s.note ? '<small>' + esc(s.note) + '</small>' : '')
+          + '<div class="pv' + (s.wide ? ' wide' : '') + '">' + (e.src ? '<img src="' + esc(img(e.src)) + '" alt="">' : '') + '</div>'
+          + '<button class="btn sm" type="button" data-act="pick" data-kind="evid" data-i="' + i + '">تغيير الصورة</button>'
+          + field('التعليق (عربي)', 'evid.' + i + '.cap.ar') + field('Caption (English)', 'evid.' + i + '.cap.en', { ltr: true }) + '</div>';
+      }).join('') + '</div>';
+  },
+  ring() {
+    return '<h2 class="ph">المعرض الدوّار</h2><p class="pd">12 تصميم بيلفّوا بالمعرض الزجاجي. اضغط على أي واحد لتغييره.</p><div class="ringg">'
+      + S.content.ring.map((r, i) => '<button type="button" data-act="pick" data-kind="ring" data-i="' + i + '" aria-label="تغيير التصميم رقم ' + (i + 1) + '">'
+        + (r.src ? '<img src="' + esc(img(r.src)) + '" alt="" loading="lazy">' : '<span style="display:grid;place-items:center;aspect-ratio:4/5">فاضي</span>') + '<span>' + (i + 1) + '</span><em>تغيير</em></button>').join('') + '</div>'
+      + '<p class="hint">الخانات الفاضية بتتعبّى تلقائياً من صور مشاريعك.</p>';
+  },
+  stats() {
+    return '<h2 class="ph">الأرقام</h2><p class="pd">بتظهر في «تقرير المحقق» على اللوحة. خلّي الخانة فاضية إذا ما بدك يظهر رقم. مثال: 4 أو +50.</p><div class="stats">'
+      + STATS.map((l, i) => '<label class="card f"><span>' + l + '</span><input type="text" inputmode="text" data-bind="stats.' + i + '" data-null="1" dir="ltr" value="' + esc(S.content.stats[i] == null ? '' : S.content.stats[i]) + '" placeholder="—"></label>').join('') + '</div>';
+  },
+  clients() {
+    return '<h2 class="ph">العملاء</h2><p class="pd">الشعارات بشريط «جهات وثقت بي». إذا ما في شعار، بيظهر الاسم مكتوب. الأفضل شعار PNG بخلفية شفافة.</p><div class="rows">'
+      + S.content.logos.map((l, i) => '<div class="lrow"><div class="logo">' + (l.src ? '<img src="' + esc(img(l.src)) + '" alt="">' : 'بدون شعار') + '</div>'
+        + '<input type="text" data-bind="logos.' + i + '.name" dir="auto" value="' + esc(l.name) + '" placeholder="اسم العميل" aria-label="اسم العميل">'
+        + '<div class="row acts" style="gap:6px"><label class="btn sm">' + (l.src ? 'تغيير الشعار' : 'رفع شعار') + '<input type="file" accept="image/*" data-up="logo" data-i="' + i + '"></label>'
+        + (l.src ? '<button class="btn sm" type="button" data-act="lclear" data-i="' + i + '">شيل الشعار</button>' : '')
+        + '<button class="btn icon" type="button" data-act="lmove" data-i="' + i + '" data-d="-1" aria-label="تقديم"' + (i === 0 ? ' disabled' : '') + '>↑</button>'
+        + '<button class="btn icon" type="button" data-act="lmove" data-i="' + i + '" data-d="1" aria-label="تأخير"' + (i === S.content.logos.length - 1 ? ' disabled' : '') + '>↓</button>'
+        + '<button class="btn icon danger" type="button" data-act="ldel" data-i="' + i + '" aria-label="حذف">✕</button></div></div>').join('')
+      + '</div><button class="btn dashed" type="button" data-act="ladd" style="margin-top:12px">+ عميل جديد</button>';
+  },
+  texts() {
+    return '<h2 class="ph">النصوص</h2><p class="pd">النصوص الأساسية بالموقع، بالعربي والإنجليزي. إذا تركت الإنجليزي فاضي بيضل النص القديم.</p><div class="rows">'
+      + TEXTS.map((x) => '<div class="xrow"><b>' + esc(x.l) + '</b>' + (x.h ? '<p class="hint" style="margin:-8px 0 0">' + esc(x.h) + '</p>' : '')
+        + '<div class="grid2">' + field('عربي', 'text.ar.' + x.k, { area: x.area }) + field('English', 'text.en.' + x.k, { area: x.area, ltr: true }) + '</div></div>').join('') + '</div>';
+  },
+  exp() {
+    const E = S.content.exp;
+    return '<h2 class="ph">الخبرات</h2><p class="pd">بتظهر بقسم «عنّي» وبقصاصة «الخبرات» على اللوحة. الأحدث فوق.</p><div class="rows">'
+      + E.map((e, i) => '<div class="xrow"><div class="row" style="justify-content:space-between"><b>' + esc(e.ar.org || 'خبرة جديدة') + '</b><span class="row" style="gap:6px">'
+        + '<label class="row" style="gap:6px;font-size:13px"><input type="checkbox" data-bind="exp.' + i + '.now"' + (e.now ? ' checked' : '') + '> الوظيفة الحالية</label>'
+        + '<button class="btn icon" type="button" data-act="emove" data-i="' + i + '" data-d="-1" aria-label="تقديم"' + (i === 0 ? ' disabled' : '') + '>↑</button>'
+        + '<button class="btn icon" type="button" data-act="emove" data-i="' + i + '" data-d="1" aria-label="تأخير"' + (i === E.length - 1 ? ' disabled' : '') + '>↓</button>'
+        + '<button class="btn icon danger" type="button" data-act="edel" data-i="' + i + '" aria-label="حذف">✕</button></span></div>'
+        + '<div class="grid2">' + field('الجهة (عربي)', 'exp.' + i + '.ar.org') + field('Company (English)', 'exp.' + i + '.en.org', { ltr: true })
+        + field('الفترة (عربي)', 'exp.' + i + '.ar.y', { ph: 'أبريل 2024 — الآن' }) + field('Period (English)', 'exp.' + i + '.en.y', { ltr: true, ph: 'Apr 2024 — Now' })
+        + field('الدور (عربي)', 'exp.' + i + '.ar.m', { ph: 'تصميم جرافيك · عن بُعد' }) + field('Role (English)', 'exp.' + i + '.en.m', { ltr: true }) + '</div></div>').join('')
+      + '</div><button class="btn dashed" type="button" data-act="eadd" style="margin-top:12px">+ خبرة جديدة</button>';
+  },
+  contact() {
+    return '<h2 class="ph">التواصل</h2><p class="pd">بتتغيّر بكل أزرار الموقع مرة وحدة.</p><div class="grid2">'
+      + field('رقم الواتساب (بمفتاح الدولة، أرقام بس)', 'contact.wa', { ltr: true, ph: '201010303485', hint: 'مثال لمصر: 20 وبعده الرقم بدون الصفر.' })
+      + field('رقم الاتصال', 'contact.phone', { ltr: true, ph: '+201010303485' })
+      + field('الرقم مثل ما بدك يظهر مكتوب', 'contact.phoneLabel', { ltr: true, ph: '+20 101 030 3485' })
+      + field('اسم المستخدم على إنستغرام', 'contact.ig', { ltr: true, ph: 'Ahmadjamal_10' })
+      + field('اسم المستخدم على بيهانس', 'contact.be', { ltr: true, ph: 'ahmadjamal_10' }) + '</div>';
+  },
+  pdf() {
+    const p = S.content.pdf;
+    return '<h2 class="ph">ملف PDF</h2><p class="pd">الملف اللي بينزل لما العميل يضغط «تحميل البورتفوليو».</p><div class="card" style="display:grid;gap:14px">'
+      + '<label class="row" style="gap:8px;font-weight:700"><input type="checkbox" data-bind="pdf.on"' + (p.on !== false ? ' checked' : '') + '> إظهار أزرار تحميل الـPDF بالموقع</label>'
+      + '<div class="row">' + (p.src ? '<a class="btn sm" href="' + esc(S.pending.has(p.src) ? URL.createObjectURL(S.pending.get(p.src).blob) : img(p.src)) + '" target="_blank" rel="noopener">فتح الملف الحالي ↗</a>' : '<span class="muted">ما في ملف.</span>')
+      + (S.pending.has(p.src) ? '<span class="muted">ملف جديد — بينرفع لما تضغط «حفظ ونشر»</span>' : '') + '</div>'
+      + '<label class="btn">رفع ملف PDF جديد<input type="file" accept="application/pdf,.pdf" data-up="pdf"></label>'
+      + '<p class="hint">نصيحة: خلّي حجم الملف أقل من 20 ميغا عشان ينزل بسرعة على الموبايل.</p></div>';
+  },
+};
+
+function toHex(v, fb) {
+  v = String(v || '').trim();
+  if (/^#[0-9a-f]{6}$/i.test(v)) return v;
+  if (/^#[0-9a-f]{3}$/i.test(v)) return '#' + v.slice(1).split('').map((c) => c + c).join('');
+  const m = v.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
+  if (m) return '#' + [m[1], m[2], m[3]].map((n) => Math.min(255, +n).toString(16).padStart(2, '0')).join('');
+  return fb;
+}
+
+/* ---------- picker ---------- */
+function openPicker(kind, i) {
+  const cur = kind === 'evid' ? S.content.evid[i] : S.content.ring[i];
+  const groups = S.content.projects.filter((p) => p.imgs.length || p.cover).map((p) => {
+    const list = p.cover && p.imgs.indexOf(p.cover) < 0 ? [p.cover].concat(p.imgs) : p.imgs.slice();
+    return '<h4>' + esc(projTitle(p)) + (LOCK[p.id] ? ' <small class="muted">(' + esc(LOCK[p.id]) + ')</small>' : '') + '</h4><div class="pick">'
+      + list.map((s) => '<button type="button" class="' + (cur && cur.src === s && cur.proj === p.id ? 'on' : '') + '" data-act="choose" data-proj="' + esc(p.id) + '" data-src="' + esc(s) + '" aria-label="' + esc(projTitle(p)) + '"><img src="' + esc(img(s)) + '" alt="" loading="lazy"></button>').join('') + '</div>';
+  }).join('');
+  const m = document.createElement('div');
+  m.className = 'modal';
+  m.setAttribute('role', 'dialog');
+  m.setAttribute('aria-modal', 'true');
+  m.setAttribute('aria-label', 'اختيار صورة');
+  m.dataset.kind = kind;
+  m.dataset.i = String(i);
+  m.innerHTML = '<div class="box"><div class="mh"><b>اختار صورة</b><button class="btn sm" type="button" data-act="mclose">إغلاق</button></div>' + groups + '</div>';
+  $('#layer').appendChild(m);
+  const f = $('.pick button.on', m) || $('.pick button', m);
+  if (f) f.focus();
+}
+function closePicker() { const m = $('.modal'); if (m) m.remove(); }
+
+/* ---------- events ---------- */
+document.addEventListener('submit', async (ev) => {
+  if (ev.target.id !== 'loginf') return;
+  ev.preventDefault();
+  const fd = new FormData(ev.target);
+  S.form = { owner: String(fd.get('owner') || ''), repo: String(fd.get('repo') || '') };
+  S.loading = true; S.err = ''; render();
+  try {
+    await login(String(fd.get('owner') || ''), String(fd.get('repo') || ''), String(fd.get('token') || ''));
+  } catch (e) {
+    S.content = null;
+    S.err = errText(e, e.stage);
+  }
+  S.loading = false;
+  render();
+});
+
+document.addEventListener('click', (ev) => {
+  const el = ev.target.closest('[data-act]');
+  if (!el) {
+    if (ev.target.classList && ev.target.classList.contains('modal')) closePicker();
+    return;
+  }
+  const act = el.dataset.act;
+  const C = S.content;
+  const i = el.dataset.i != null ? +el.dataset.i : null;
+  const d = el.dataset.d != null ? +el.dataset.d : 0;
+  const P = C && C.projects;
+  const cur = P && P[S.sel];
+  switch (act) {
+    case 'tab': S.tab = el.dataset.tab; renderPanel(); window.scrollTo(0, 0); break;
+    case 'logout':
+      if (S.dirty && !confirm('في تغييرات ما انحفظت. أكيد بدك تطلع؟')) return;
+      lsSet(LS, null); S.content = null; S.auth = null; S.dirty = false; S.pending.clear(); render(); break;
+    case 'publish': publish(); break;
+    case 'psel': S.sel = i; renderPanel(); break;
+    case 'padd':
+      P.unshift({ id: 'p-' + Date.now().toString(36), cat: 'social', type: 'posters', bg: '#1B1B1B', fg: '#FFFFFF', fg2: '#FFFFFF', title: { ar: 'مشروع جديد', en: 'New project' }, sub: { ar: '', en: '' }, imgs: [] });
+      S.sel = 0; markDirty(); renderPanel();
+      toast('انضاف مشروع جديد فوق القائمة. غيّر اسمه وأضف صوره.');
+      break;
+    case 'pdel':
+      if (!cur || LOCK[cur.id]) return;
+      if (!confirm('حذف مشروع «' + projTitle(cur) + '»؟ (الصور بتضل محفوظة بالمستودع)')) return;
+      P.splice(S.sel, 1);
+      C.evid.forEach((e) => { if (e.proj === cur.id) { e.proj = ''; e.src = ''; } });
+      C.ring.forEach((r) => { if (r.proj === cur.id) { r.proj = ''; r.src = ''; } });
+      S.sel = Math.max(0, S.sel - 1); markDirty(); renderPanel(); break;
+    case 'pmove': if (move(P, S.sel, d)) { S.sel += d; markDirty(); renderPanel(); } break;
+    case 'imove': if (move(cur.imgs, +el.dataset.j, d)) { delete cur.thumbs; markDirty(); renderPanel(); } break;
+    case 'idel': {
+      const j = +el.dataset.j;
+      const s = cur.imgs[j];
+      cur.imgs.splice(j, 1);
+      delete cur.thumbs;
+      if (cur.cover === s) delete cur.cover;
+      if (S.pending.has(s) && !stillUsed(s)) S.pending.delete(s);
+      markDirty(); renderPanel(); break;
+    }
+    case 'icover': cur.cover = cur.imgs[+el.dataset.j]; markDirty(); renderPanel(); break;
+    case 'pick': openPicker(el.dataset.kind, i); break;
+    case 'choose': {
+      const m = el.closest('.modal');
+      const k = m.dataset.kind;
+      const idx = +m.dataset.i;
+      const tgt = k === 'evid' ? C.evid[idx] : C.ring[idx];
+      tgt.proj = el.dataset.proj; tgt.src = el.dataset.src;
+      if (k === 'evid') { const p = P.find((x) => x.id === tgt.proj); if (p) tgt.cap = { ar: p.title.ar, en: p.title.en }; }
+      closePicker(); markDirty(); renderPanel(); break;
+    }
+    case 'mclose': closePicker(); break;
+    case 'ladd': C.logos.push({ name: '', src: '' }); markDirty(); renderPanel(); { const ins = document.querySelectorAll('.lrow input[type=text]'); if (ins.length) ins[ins.length - 1].focus(); } break;
+    case 'ldel': if (confirm('حذف هذا العميل؟')) { C.logos.splice(i, 1); markDirty(); renderPanel(); } break;
+    case 'lmove': if (move(C.logos, i, d)) { markDirty(); renderPanel(); } break;
+    case 'lclear': C.logos[i].src = ''; markDirty(); renderPanel(); break;
+    case 'eadd': C.exp.unshift({ now: false, ar: { y: '', org: '', m: '' }, en: { y: '', org: '', m: '' } }); markDirty(); renderPanel(); break;
+    case 'edel': if (confirm('حذف هذه الخبرة؟')) { C.exp.splice(i, 1); markDirty(); renderPanel(); } break;
+    case 'emove': if (move(C.exp, i, d)) { markDirty(); renderPanel(); } break;
+    default: break;
+  }
+});
+
+function stillUsed(s) {
+  const C = S.content;
+  return C.projects.some((p) => p.imgs.indexOf(s) >= 0 || p.cover === s) || C.logos.some((l) => l.src === s) || C.pdf.src === s;
+}
+
+function onBind(el) {
+  const path = el.dataset.bind;
+  let v;
+  if (el.type === 'checkbox') v = el.checked;
+  else v = el.value;
+  if (el.dataset.null && String(v).trim() === '') v = null;
+  setPath(S.content, path, v);
+  if (el.dataset.fg) { const m = path.match(/^projects\.(\d+)\./); if (m) S.content.projects[+m[1]].fg2 = v; }
+  const t = path.match(/^projects\.(\d+)\.title\.ar$/);
+  if (t) { const b = document.querySelector('[data-ptitle="' + t[1] + '"]'); if (b) b.textContent = v || 'بدون اسم'; }
+  markDirty();
+  if (el.dataset.rerender) renderPanel();
+}
+document.addEventListener('input', (ev) => { const el = ev.target; if (el.dataset && el.dataset.bind && el.type !== 'checkbox' && el.tagName !== 'SELECT') onBind(el); });
+document.addEventListener('change', async (ev) => {
+  const el = ev.target;
+  if (el.dataset && el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT')) { onBind(el); return; }
+  if (!el.dataset || !el.dataset.up) return;
+  const kind = el.dataset.up;
+  const files = el.files;
+  if (!files || !files.length) return;
+  busy('بجهّز الملفات…');
+  try {
+    const paths = await addFiles(files, kind === 'pdf' ? 'pdf' : 'img');
+    if (!paths.length) return;
+    const C = S.content;
+    if (kind === 'pimgs') { const p = C.projects[S.sel]; p.imgs = p.imgs.concat(paths); delete p.thumbs; }
+    else if (kind === 'logo') C.logos[+el.dataset.i].src = paths[0];
+    else if (kind === 'pdf') { C.pdf.src = paths[0]; C.pdf.on = true; }
+    markDirty();
+    renderPanel();
+    toast(paths.length === 1 ? 'جاهز ✓ اضغط «حفظ ونشر» لما تخلّص.' : 'انضافت ' + paths.length + ' ملفات ✓ اضغط «حفظ ونشر» لما تخلّص.');
+  } catch (e) {
+    toast('ما قدرت أجهّز الملف.', true);
+  } finally {
+    busy(null);
+    el.value = '';
+  }
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && $('.modal')) closePicker(); });
+window.addEventListener('beforeunload', (ev) => { if (S.dirty) { ev.preventDefault(); ev.returnValue = ''; } });
+
+/* ---------- start ---------- */
+(async () => {
+  const saved = (() => { try { return JSON.parse(lsGet(LS) || 'null'); } catch (e) { return null; } })();
+  if (saved && saved.token) {
+    S.loading = true; render();
+    try { await login(saved.owner, saved.repo, saved.token); } catch (e) { S.content = null; S.err = errText(e, e.stage); }
+    S.loading = false;
+  }
+  render();
+})();
+})();
+</script>
+</body>
+</html>
